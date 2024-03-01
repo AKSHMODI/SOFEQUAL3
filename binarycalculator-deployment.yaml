@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: binarycalculator-deployment
+spec:
+  replicas: 3  # Update this value as needed
+  selector:
+    matchLabels:
+      app: binarycalculator
+  template:
+    metadata:
+      labels:
+        app: binarycalculator
+    spec:
+      containers:
+      - name: binarycalculator
+        image: northamerica-northeast2-docker.pkg.dev/careful-record-415802/sofe3980u/binarycalculator:<new-tag>
+        ports:
+        - containerPort: 8080
